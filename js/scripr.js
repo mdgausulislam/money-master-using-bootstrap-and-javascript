@@ -42,44 +42,52 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
     const incomeExpensiveBalanceTotal = foodField + rentField + clothesField+ totalExpensiveBalance;
     setTextField('total-expensive',incomeExpensiveBalanceTotal);
 
+    calculateAmount(incomeBalanceTotal,incomeExpensiveBalanceTotal)
+
     // const totalBalanceElements1 = getElementByIdValue('total-balance');
 
     // const previousTotalBalanceStrings1 = totalBalanceElements1.innerText;
     // const previousTotalBalance1 = parseFloat(previousTotalBalanceStrings1);
-
-    const totalMainBalance = incomeBalanceTotal - incomeExpensiveBalanceTotal;
-    setTextField('total-balance',totalMainBalance);
-
-
 
     // totalBalanceElements1.innerText = totalMainBalance;
 })
 
 
 
-
-
-
-// document.getElementById('btn-save').addEventListener('click',function(){
+// document.getElementById('btn-save').addEventListener('click', function () {
+//     // Get the input field element
 //     const savingField = document.getElementById('saving-field');
-//     const newSavingFieldString = savingField.value;
-//     const newIncomeField = parseFloat(newSavingFieldString);
 
-//     console.log(newIncomeField);
-//     const totalBalanceElements1 = document.getElementById('total-balance');
-//     const previousTotalBalanceStrings1 = totalBalanceElements1.innerText;
-//     const previousTotalBalance1 = parseFloat(previousTotalBalanceStrings1);
+//     // Get the value entered in the input field and convert it to a number
+//     const inputPercentage = parseFloat(savingField.value);
 
-//     // const savingBalance = totalMainBalance * 0.2;
-//     // console.log(savingBalance);
+//     // Check if the input is a valid number
+//     if (!isNaN(inputPercentage)) {
+//         // Calculate the savings amount (assuming the input is a percentage)
+//         const saveAmount = (inputPercentage / 100) * 20; // You can change 20 to any desired amount
+
+//         // Display the calculated savings amount in an alert
+//         alert(`You will save ${saveAmount.toFixed(2)} dollars.`); // Display the result as a decimal with 2 decimal places
+//     } else {
+//         // Handle invalid input (non-numeric input)
+//         alert('Please enter a valid percentage.');
+//     }
+// });
 
 
-//     const savingAmount = document.getElementById('saving-amount');
-//     const previousSavingAmountStrings = savingAmount.innerText;
-//     const previousSavingAmount = parseFloat(previousSavingAmountStrings);
+document.getElementById('btn-save').addEventListener('click',function(){
+const savingField = setInputFieldText('saving-field');
+const totalBalanceElements = getElementByIdValue('total-balance');
+const saveAmountString = (totalBalanceElements/ 100 )* savingField;
+const SavingPercentAmount = parseFloat(saveAmountString);
+console.log(SavingPercentAmount);
 
-//     const remainingBalance = document.getElementById('remaining-balance');
-//     const previousRemainingBalanceStrings = remainingBalance.innerText;
-//     const previousRemainingBalance = parseFloat(previousRemainingBalanceStrings);
+// 
 
-// })
+// const savingMainAmount= (totalBalanceElements * SavingPercentAmount)/100;
+// console.log(savingMainAmount);
+
+
+
+
+})
