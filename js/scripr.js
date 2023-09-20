@@ -54,40 +54,20 @@ document.getElementById('btn-calculate').addEventListener('click', function () {
 
 
 
-// document.getElementById('btn-save').addEventListener('click', function () {
-//     // Get the input field element
-//     const savingField = document.getElementById('saving-field');
-
-//     // Get the value entered in the input field and convert it to a number
-//     const inputPercentage = parseFloat(savingField.value);
-
-//     // Check if the input is a valid number
-//     if (!isNaN(inputPercentage)) {
-//         // Calculate the savings amount (assuming the input is a percentage)
-//         const saveAmount = (inputPercentage / 100) * 20; // You can change 20 to any desired amount
-
-//         // Display the calculated savings amount in an alert
-//         alert(`You will save ${saveAmount.toFixed(2)} dollars.`); // Display the result as a decimal with 2 decimal places
-//     } else {
-//         // Handle invalid input (non-numeric input)
-//         alert('Please enter a valid percentage.');
-//     }
-// });
-
 
 document.getElementById('btn-save').addEventListener('click',function(){
 const savingField = setInputFieldText('saving-field');
 const totalBalanceElements = getElementByIdValue('total-balance');
 const saveAmountString = (totalBalanceElements/ 100 )* savingField;
 const SavingPercentAmount = parseFloat(saveAmountString);
-console.log(SavingPercentAmount);
-
-// 
-
-// const savingMainAmount= (totalBalanceElements * SavingPercentAmount)/100;
-// console.log(savingMainAmount);
 
 
+const SavingAmount = getElementByIdValue('saving-amount');
+setTextField('saving-amount',SavingPercentAmount);
 
+
+const remainingBalance = getElementByIdValue('remaining-balance');
+const remainingAmount=totalBalanceElements-SavingPercentAmount;
+setTextField('remaining-balance',remainingAmount);
 
 })
